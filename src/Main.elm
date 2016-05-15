@@ -4,6 +4,7 @@
 module Main exposing (..)
 
 import Html exposing (Html, button, div, text)
+import Html.Attributes exposing (class)
 import Html.App as Html
 import Html.Events exposing (onClick)
 
@@ -53,6 +54,6 @@ view : Model -> Html Msg
 view model =
     div []
         [ button [ onClick Decrement ] [ text "-" ]
-        , div [] [ text (toString model) ]
+        , div [ class "buttonsCounter" ] [ text (toString model) ]
         , button [ onClick Increment ] [ text "+" ]
         ]
