@@ -4,11 +4,14 @@
 module Main exposing (..)
 
 import Html exposing (Html, button, div, text)
-import Html.Attributes exposing (class)
 import Html.App as Html
 import Html.Events exposing (onClick)
+import Html.CssHelpers
+import MyCss
 
 
+{ class } =
+    Html.CssHelpers.withNamespace "buttons"
 main : Program Never
 main =
     Html.beginnerProgram { model = model, view = view, update = update }
@@ -54,6 +57,6 @@ view : Model -> Html Msg
 view model =
     div []
         [ button [ onClick Decrement ] [ text "-" ]
-        , div [ class "buttonsCounter" ] [ text (toString model) ]
+        , div [ class [ MyCss.Counter ] ] [ text (toString model) ]
         , button [ onClick Increment ] [ text "+" ]
         ]
