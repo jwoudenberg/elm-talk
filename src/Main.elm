@@ -56,7 +56,15 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ button [ onClick Decrement ] [ text "-" ]
+        [ button
+            [ class [ MyCss.Button ]
+            , onClick Decrement
+            ]
+            [ text "-" ]
         , div [ class [ MyCss.Counter ] ] [ text (toString model) ]
-        , button [ onClick Increment ] [ text "+" ]
+        , button
+            [ class [ MyCss.Button ]
+            , onClick Increment
+            ]
+            [ text "+" ]
         ]
