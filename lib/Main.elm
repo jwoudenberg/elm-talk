@@ -19,7 +19,13 @@ main =
 model : Stylesheet
 model =
     [ (.) Foo
-        [ backgroundColor red ]
+        [ backgroundColor red
+        , width (px 100)
+        ]
+    , (.) Bar
+        [ backgroundColor inherit
+        , width inherit
+        ]
     ]
 
 

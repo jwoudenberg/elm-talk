@@ -39,6 +39,10 @@ type alias ColorValue compatible =
     { compatible | value : String, color : Compatible }
 
 
+type alias LengthValue compatible =
+    { compatible | value : String, length : Compatible }
+
+
 compile : Stylesheet -> String
 compile snippets =
     let
@@ -78,8 +82,30 @@ red =
     }
 
 
+px : Int -> LengthValue {}
+px length =
+    { value = (toString length) ++ "px"
+    , length = Compatible
+    }
+
+
+inherit : { value : String, color : Compatible, length : Compatible }
+inherit =
+    { value = "inherit"
+    , color = Compatible
+    , length = Compatible
+    }
+
+
 backgroundColor : ColorValue compatible -> Property
 backgroundColor colorValue =
     { key = "backgroundColor"
     , value = colorValue.value
+    }
+
+
+width : LengthValue compatible -> Property
+width lengthValue =
+    { key = "width"
+    , value = lengthValue.value
     }
