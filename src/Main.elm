@@ -4,10 +4,16 @@
 module Main exposing (..)
 
 import Html exposing (Html, button, div, text)
+import Css exposing (asPairs, backgroundColor, hex, position, absolute, border3, px, solid)
+import Html.Attributes
 import Html.App as Html
 import Html.Events exposing (onClick)
 import Html.CssHelpers
 import MyCss
+
+
+styles =
+    Css.asPairs >> Html.Attributes.style
 
 
 { class } =
@@ -55,7 +61,13 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
+    div
+        [ styles
+            [ backgroundColor (hex "dddddd")
+            , position absolute
+            , border3 (px 1) solid (hex "000000")
+            ]
+        ]
         [ button
             [ class [ MyCss.Button ]
             , onClick Decrement
