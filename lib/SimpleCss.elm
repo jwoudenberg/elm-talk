@@ -31,6 +31,14 @@ type alias Property =
     }
 
 
+type Compatible
+    = Compatible
+
+
+type alias ColorValue compatible =
+    { compatible | value : String, color : Compatible }
+
+
 compile : Stylesheet -> String
 compile snippets =
     let
@@ -61,3 +69,17 @@ compile snippets =
     in
         List.map compileSnippet snippets
             |> String.join "\n\n"
+
+
+red : ColorValue {}
+red =
+    { value = "red"
+    , color = Compatible
+    }
+
+
+backgroundColor : ColorValue compatible -> Property
+backgroundColor colorValue =
+    { key = "backgroundColor"
+    , value = colorValue.value
+    }

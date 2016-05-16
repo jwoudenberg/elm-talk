@@ -19,7 +19,7 @@ main =
 model : Stylesheet
 model =
     [ (.) Foo
-        [ { key = "backgroundColor", value = "red" } ]
+        [ backgroundColor red ]
     ]
 
 
